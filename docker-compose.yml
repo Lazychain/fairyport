@@ -1,0 +1,11 @@
+services:
+  fairyport:
+    build: .
+    ports:
+      - "9090:9090"
+    volumes:
+      - .env:/app/.env
+        #- fairyport_data:/root/.fairyport
+
+        # volumes:
+        #  fairyport_data:
