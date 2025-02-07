@@ -1,8 +1,11 @@
-FROM golang:1.21-bullseye
+FROM rust:latest
 
-# Install Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="$HOME/.cargo/bin:${PATH}"
+# Install Go
+RUN curl -OL https://go.dev/dl/go1.21.6.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz && \
+    rm go1.21.6.linux-amd64.tar.gz
+
+ENV PATH=$PATH:/usr/local/go/bin
 
 WORKDIR /app
 
