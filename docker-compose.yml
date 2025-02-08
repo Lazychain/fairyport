@@ -1,6 +1,10 @@
 services:
   fairyport:
-    build: .
+    build:
+      context: .
+      args:
+      - CHAIN_RPC=fuckyou
+      - CONTRACT_ADDRESS=fuckyou
     ports:
       - "9090:9090"
     volumes:
